@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Básico -->
+    <title>Catálogo - Orgánicos La Comarca</title>
+    <meta
+      name="description"
+      content="Descubre el catálogo de productos 100% orgánicos de La Comarca. Alimentos frescos, naturales y saludables para ti y tu familia."
+    />
+    <meta
+      name="keywords"
+      content="orgánicos, productos naturales, alimentos saludables, La Comarca, catálogo orgánico"
+    />
+    <meta name="author" content="Orgánicos La Comarca" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Redes sociales (Open Graph para Facebook, WhatsApp, etc.) -->
+    <meta property="og:title" content="Catálogo - Orgánicos La Comarca" />
+    <meta
+      property="og:description"
+      content="Explora nuestra variedad de productos orgánicos, frescos y saludables."
+    />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dlndfeezj/image/upload/v1748895100/Org%C3%A1nicos%20la%20Comarca/favicon.png"
+    />
+    <meta property="og:url" content="https://catalogo.organicoslacomarca.online" />
+    <meta property="og:url" content="https://organicoslacomarca.online" />
+    <meta property="og:type" content="website" />
+
+    <!-- Ícono de la pestaña (favicon) -->
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dlndfeezj/image/upload/v1748895100/Org%C3%A1nicos%20la%20Comarca/favicon.png"
+      type="image/png"
+    />
+
+    <!-- Fuente Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+
+      .navbar-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #2d3748, #4a5568);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #4a5568;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 12px 24px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #38a169;
+        background: rgba(104, 211, 145, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .nav-link.primary {
+        background: linear-gradient(135deg, #68d391, #38a169);
+        color: white;
+        box-shadow: 0 4px 15px rgba(104, 211, 145, 0.3);
+      }
+
+      .nav-link.primary:hover {
+        background: linear-gradient(135deg, #38a169, #2f855a);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(104, 211, 145, 0.4);
+      }
+
+      .catalog-section {
+        padding: 150px 20px 80px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .section-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #2d3748, #4a5568);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 24px;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 6px;
+        background: linear-gradient(135deg, #68d391, #38a169, #2f855a);
+        border-radius: 3px;
+      }
+
+      .section-subtitle {
+        font-size: 1.3rem;
+        color: #718096;
+        max-width: 700px;
+        margin: 0 auto;
+        font-weight: 400;
+      }
+
+      /* Mobile navbar */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: #4a5568;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 8px;
+      }
+
+      /* Producto Estrella */
+      .featured-product {
+        background: linear-gradient(135deg, #ffffff, #f7fafc);
+        border-radius: 24px;
+        padding: 40px;
+        margin-bottom: 80px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1),
+          0 0 0 1px rgba(255, 255, 255, 0.05);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .featured-product::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+      }
+
+      .star-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #ffd700, #f59e0b);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .featured-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .featured-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .featured-info h3 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 20px;
+      }
+
+      .featured-info p {
+        font-size: 1.2rem;
+        color: #4a5568;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .featured-benefits {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .benefit-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+        background: rgba(104, 211, 145, 0.1);
+        border-radius: 12px;
+        border-left: 4px solid #38a169;
+      }
+
+      .benefit-item::before {
+        content: "✓";
+        background: #38a169;
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+
+      .custom-order {
+        background: linear-gradient(135deg, #e6fffa, #b2f5ea);
+        border: 2px solid #38a169;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .custom-order h4 {
+        color: #2f855a;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .custom-order p {
+        color: #2f855a;
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .featured-actions {
+        display: flex;
+        gap: 20px;
+      }
+
+      .btn-featured {
+        padding: 18px 36px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-featured.primary {
+        background: linear-gradient(135deg, #38a169, #2f855a);
+        color: white;
+        box-shadow: 0 8px 20px rgba(56, 161, 105, 0.3);
+      }
+
+      .btn-featured.primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(56, 161, 105, 0.4);
+      }
+
+      .btn-featured.secondary {
+        background: transparent;
+        color: #38a169;
+        border: 2px solid #38a169;
+      }
+
+      .btn-featured.secondary:hover {
+        background: #38a169;
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      /* Grid de productos regulares */
+      .products-section h3 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #2d3748;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 35px;
+        margin-top: 40px;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08),
+          0 0 0 1px rgba(255, 255, 255, 0.05);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+
+      .product-image {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .product-card:hover .product-image {
+        transform: scale(1.08);
+      }
+
+      .product-info {
+        padding: 30px;
+      }
+
+      .product-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 15px;
+      }
+
+      .product-benefits {
+        color: #718096;
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      .product-details {
+        background: rgba(104, 211, 145, 0.05);
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+
+      .product-details h5 {
+        color: #2f855a;
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .product-details ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .product-details li {
+        color: #4a5568;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        position: relative;
+        padding-left: 15px;
+      }
+
+      .product-details li::before {
+        content: "•";
+        color: #38a169;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      .product-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+      }
+
+      .btn {
+        padding: 14px 28px;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #68d391, #38a169);
+        color: white;
+        box-shadow: 0 4px 15px rgba(104, 211, 145, 0.3);
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #38a169, #2f855a);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(104, 211, 145, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #4a5568;
+        border: 2px solid #e2e8f0;
+      }
+
+      .btn-secondary:hover {
+        background: #f7fafc;
+        border-color: #cbd5e0;
+        transform: translateY(-2px);
+      }
+
+      .organic-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #68d391, #38a169);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(104, 211, 145, 0.3);
+      }
+
+      /* Modal para más información */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 40px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      }
+
+      .close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #718096;
+        transition: color 0.3s ease;
+      }
+
+      .close:hover {
+        color: #2d3748;
+      }
+
+      .modal h3 {
+        color: #2d3748;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .modal-info {
+        color: #4a5568;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .featured-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .featured-benefits {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar-nav {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .catalog-section {
+          padding: 120px 16px 60px;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+        }
+
+        .featured-product {
+          padding: 30px 20px;
+        }
+
+        .featured-info h3 {
+          font-size: 2rem;
+        }
+
+        .featured-actions {
+          flex-direction: column;
+        }
+
+        .products-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+
+        .product-actions {
+          flex-direction: column;
+        }
+
+        .modal-content {
+          margin: 10% auto;
+          padding: 30px;
+          width: 95%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .navbar-container {
+          padding: 0 16px;
+        }
+
+        .logo-text {
+          font-size: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .featured-info h3 {
+          font-size: 1.75rem;
+        }
+
+        .product-info {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+          <div class="logo-icon">
+            <div class="logo-icon">
+              <img
+                src="https://res.cloudinary.com/dlndfeezj/image/upload/v1748895100/Org%C3%A1nicos%20la%20Comarca/favicon.png"
+                alt="Organicos La comarca Logo"
+                style="width: 100px; height: 50px"
+              />
+            </div>
+          </div>
+          <span class="logo-text">Orgánicos La Comarca</span>
+        </a>
+
+        <div class="navbar-nav">
+          <a href="https://organicoslacomarca.online" class="nav-link primary"
+            >Ir a Página Principal</a
+          >
+        </div>
+
+        <button class="mobile-menu-btn">☰</button>
+      </div>
+    </nav>
+
+    <section class="catalog-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Catálogo de Orgánicos La Comarca</h2>
+          <p class="section-subtitle">
+            Productos orgánicos premium, cultivados con excelencia y
+            certificados para tu bienestar y el cuidado del medio ambiente.
+          </p>
+        </div>
+
+        <!-- Producto Estrella -->
+        <div class="featured-product">
+          <div class="star-badge">★ Producto Estrella</div>
+          <div class="featured-content">
+            <div>
+              <img
+                src="https://res.cloudinary.com/dlndfeezj/image/upload/v1748646884/Org%C3%A1nicos%20la%20Comarca/lombricompost.png"
+                alt="Lombricompost - Producto Estrella"
+                class="featured-image"
+              />
+            </div>
+            <div class="featured-info">
+              <h3>Lombricompost Premium</h3>
+              <p>
+                El fertilizante orgánico más completo y efectivo del mercado.
+                Elaborado con tecnología avanzada de lombricultura para
+                garantizar la máxima calidad nutricional para tus plantas.
+              </p>
+
+              <div class="featured-benefits">
+                <div class="benefit-item">
+                  <span>100% Orgánico Certificado</span>
+                </div>
+                <div class="benefit-item">
+                  <span>Rica en Micronutrientes</span>
+                </div>
+                <div class="benefit-item">
+                  <span>Mejora Estructura del Suelo</span>
+                </div>
+                <div class="benefit-item">
+                  <span>Aumenta Retención de Agua</span>
+                </div>
+              </div>
+
+              <div class="custom-order">
+                <h4>🎯 Pedidos Personalizados</h4>
+                <p>
+                  Puedes encargar la cantidad exacta que necesites. Desde 1kg
+                  hasta toneladas. ¡Cotiza sin compromiso!
+                </p>
+              </div>
+
+              <div class="featured-actions">
+                <a
+                  href="https://wa.me/573183143050?text=Hola%20estoy%20interesado%20en%20el%20producto%20Lombricompost%20Premium,%20me%20gustaría%20cotizar%20una%20cantidad%20específica"
+                  target="_blank"
+                  class="btn-featured primary"
+                  >Cotizar Cantidad</a
+                >
+                <button
+                  class="btn-featured secondary"
+                  onclick="openModal('lombricompost')"
+                >
+                  Más Información
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ...existing product sections... -->
+        <!-- (Mantengo todo el contenido de productos igual) -->
+
+        <!-- Otros Productos -->
+        <div class="products-section">
+          <h3>Otros Productos Destacados</h3>
+          <div class="products-grid">
+            <!-- Jarabe de Totumo -->
+            <div class="product-card">
+              <div class="organic-badge">Orgánico</div>
+              <img
+                src="https://res.cloudinary.com/dlndfeezj/image/upload/v1748645964/Org%C3%A1nicos%20la%20Comarca/jarabe-de-totumo.png"
+                alt="Jarabe de Totumo"
+                class="product-image"
+              />
+              <div class="product-info">
+                <h3 class="product-name">Jarabe de Totumo</h3>
+                <p class="product-benefits">
+                  Alivia problemas respiratorios, expectorante natural,
+                  fortalece el sistema inmune. Ideal para el cuidado natural de
+                  las vías respiratorias.
+                </p>
+
+                <div class="product-details">
+                  <h5>Beneficios Adicionales:</h5>
+                  <ul>
+                    <li>Reduce la tos y flemas</li>
+                    <li>Fortalece las defensas naturales</li>
+                    <li>Libre de químicos sintéticos</li>
+                    <li>Apto para toda la familia</li>
+                  </ul>
+                </div>
+
+                <div class="product-actions">
+                  <a
+                    href="https://wa.me/573183143050?text=Hola%20estoy%20interesado%20en%20el%20producto%20Jarabe%20de%20Totumo"
+                    target="_blank"
+                    class="btn btn-primary"
+                    >Comprar</a
+                  >
+                  <button
+                    class="btn btn-secondary"
+                    onclick="openModal('jarabe')"
+                  >
+                    Ver más
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Harina de Cachaco -->
+            <div class="product-card">
+              <div class="organic-badge">Orgánico</div>
+              <img
+                src="https://res.cloudinary.com/dlndfeezj/image/upload/v1748646341/Org%C3%A1nicos%20la%20Comarca/harina-de-cachaco.png"
+                alt="Harina de Cachaco"
+                class="product-image"
+              />
+              <div class="product-info">
+                <h3 class="product-name">Harina de Cachaco</h3>
+                <p class="product-benefits">
+                  Rica en fibra, ayuda a la digestión, ideal para preparaciones
+                  saludables. Perfecta para una alimentación balanceada y
+                  nutritiva.
+                </p>
+
+                <div class="product-details">
+                  <h5>Propiedades Nutricionales:</h5>
+                  <ul>
+                    <li>Alto contenido en fibra dietética</li>
+                    <li>Facilita la digestión</li>
+                    <li>Sin gluten, apto para celíacos</li>
+                    <li>Ideal para batidos y recetas</li>
+                  </ul>
+                </div>
+
+                <div class="product-actions">
+                  <a
+                    href="https://wa.me/573183143050?text=Hola%20estoy%20interesado%20en%20el%20producto%20Harina%20de%20Cachaco"
+                    target="_blank"
+                    class="btn btn-primary"
+                    >Comprar</a
+                  >
+                  <button
+                    class="btn btn-secondary"
+                    onclick="openModal('harina')"
+                  >
+                    Ver más
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tónico Capilar -->
+            <div class="product-card">
+              <div class="organic-badge">Orgánico</div>
+              <img
+                src="https://res.cloudinary.com/dlndfeezj/image/upload/v1748646422/Org%C3%A1nicos%20la%20Comarca/tonico-capilar.png"
+                alt="Tónico Capilar"
+                class="product-image"
+              />
+              <div class="product-info">
+                <h3 class="product-name">Tónico Capilar</h3>
+                <p class="product-benefits">
+                  Estimula el crecimiento del cabello, fortalece las raíces,
+                  reduce la caída. Cuidado natural para un cabello sano y
+                  fuerte.
+                </p>
+
+                <div class="product-details">
+                  <h5>Ingredientes Naturales:</h5>
+                  <ul>
+                    <li>Extractos de plantas medicinales</li>
+                    <li>Aceites esenciales nutritivos</li>
+                    <li>Sin parabenos ni sulfatos</li>
+                    <li>Resultados visibles en 4 semanas</li>
+                  </ul>
+                </div>
+
+                <div class="product-actions">
+                  <a
+                    href="https://wa.me/573183143050?text=Hola%20estoy%20interesado%20en%20el%20producto%20Tónico%20Capilar"
+                    target="_blank"
+                    class="btn btn-primary"
+                    >Comprar</a
+                  >
+                  <button
+                    class="btn btn-secondary"
+                    onclick="openModal('tonico')"
+                  >
+                    Ver más
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Granola Orgánica -->
+            <div class="product-card">
+              <div class="organic-badge">Orgánico</div>
+              <img
+                src="https://res.cloudinary.com/dlndfeezj/image/upload/v1748646629/Org%C3%A1nicos%20la%20Comarca/granola.png"
+                alt="Granola Orgánica"
+                class="product-image"
+              />
+              <div class="product-info">
+                <h3 class="product-name">Granola Orgánica</h3>
+                <p class="product-benefits">
+                  Fuente de energía natural, rica en proteínas y antioxidantes.
+                  El desayuno perfecto para comenzar el día con vitalidad.
+                </p>
+
+                <div class="product-details">
+                  <h5>Ingredientes Premium:</h5>
+                  <ul>
+                    <li>Avena integral orgánica</li>
+                    <li>Frutos secos y semillas</li>
+                    <li>Miel de abejas pura</li>
+                    <li>Sin azúcares procesados</li>
+                  </ul>
+                </div>
+
+                <div class="product-actions">
+                  <a
+                    href="https://wa.me/573183143050?text=Hola%20estoy%20interesado%20en%20el%20producto%20Granola%20Orgánica"
+                    target="_blank"
+                    class="btn btn-primary"
+                    >Comprar</a
+                  >
+                  <button
+                    class="btn btn-secondary"
+                    onclick="openModal('granola')"
+                  >
+                    Ver más
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modales para información detallada -->
+    <div id="modal-lombricompost" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('lombricompost')">&times;</span>
+        <h3>Lombricompost Premium</h3>
+        <div class="modal-info">
+          <h4>Descripción Completa:</h4>
+          <p>
+            Nuestro Lombricompost Premium es producido mediante un proceso
+            controlado de lombricultura utilizando lombrices rojas
+            californianas. Este fertilizante orgánico concentra todos los
+            nutrientes necesarios para el crecimiento óptimo de las plantas.
+          </p>
+
+          <h4>Composición:</h4>
+          <ul>
+            <li>Materia orgánica: 35-45%</li>
+            <li>Nitrógeno total: 1.5-2%</li>
+            <li>Fósforo disponible: 1-1.5%</li>
+            <li>Potasio intercambiable: 1-2%</li>
+            <li>pH: 6.5-7.5</li>
+          </ul>
+
+          <h4>Presentaciones Disponibles:</h4>
+          <p>
+            Bolsas de 1kg, 5kg, 10kg, 25kg, 50kg y al granel por toneladas.
+            Cotiza la cantidad exacta que necesites.
+          </p>
+          <a
+            href="https://organicoslacomarca.online/news/lombricompost-100-org%C3%A1nico"
+          >
+            <h4>Seguir leyendo</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-jarabe" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('jarabe')">&times;</span>
+        <h3>Jarabe de Totumo</h3>
+        <div class="modal-info">
+          <h4>Propiedades Medicinales:</h4>
+          <p>
+            El jarabe de totumo es un remedio natural tradicional conocido por
+            sus propiedades expectorantes y fortalecedoras del sistema
+            respiratorio.
+          </p>
+
+          <h4>Modo de Uso:</h4>
+          <ul>
+            <li>Adultos: 1 cucharada 3 veces al día</li>
+            <li>Niños mayores de 5 años: 1 cucharadita 2 veces al día</li>
+            <li>Tomar preferiblemente después de las comidas</li>
+          </ul>
+
+          <h4>Presentación:</h4>
+          <p>
+            Frasco de 250ml. Conservar en lugar fresco y seco. Una vez abierto,
+            refrigerar y consumir en 30 días.
+          </p>
+          <a href="https://organicoslacomarca.online/news/t%C3%B3nico-capilar">
+            <h4>Seguir leyendo</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-harina" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('harina')">&times;</span>
+        <h3>Harina de Cachaco</h3>
+        <div class="modal-info">
+          <h4>Información Nutricional:</h4>
+          <p>
+            La harina de cachaco es un superalimento rico en fibra dietética,
+            vitaminas y minerales esenciales para una digestión saludable.
+          </p>
+
+          <h4>Usos Culinarios:</h4>
+          <ul>
+            <li>Batidos y smoothies nutritivos</li>
+            <li>Preparación de panes integrales</li>
+            <li>Sopas y cremas espesas</li>
+            <li>Postres saludables</li>
+          </ul>
+
+          <h4>Presentación:</h4>
+          <p>
+            Empaque de 500g en bolsa sellada al vacío. Mantener en lugar seco y
+            fresco. Fecha de vencimiento: 12 meses.
+          </p>
+          <a href="https://organicoslacomarca.online/news/harina-de-cachaco">
+            <h4>Seguir leyendo</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-tonico" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('tonico')">&times;</span>
+        <h3>Tónico Capilar</h3>
+        <div class="modal-info">
+          <h4>Ingredientes Activos:</h4>
+          <p>
+            Formulado con extractos naturales de romero, ortiga, cola de caballo
+            y aceites esenciales que nutren el cuero cabelludo.
+          </p>
+
+          <h4>Modo de Aplicación:</h4>
+          <ul>
+            <li>Aplicar sobre cuero cabelludo limpio</li>
+            <li>Masajear suavemente por 2-3 minutos</li>
+            <li>No enjuagar, dejar actuar</li>
+            <li>Usar 3 veces por semana</li>
+          </ul>
+
+          <h4>Presentación:</h4>
+          <p>
+            Frasco con atomizador de 120ml. Libre de químicos agresivos,
+            parabenos y sulfatos.
+          </p>
+          <a href="https://organicoslacomarca.online/news/t%C3%B3nico-capilar">
+            <h4>Seguir leyendo</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-granola" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('granola')">&times;</span>
+        <h3>Granola Orgánica</h3>
+        <div class="modal-info">
+          <h4>Ingredientes Seleccionados:</h4>
+          <p>
+            Mezcla perfecta de avena integral, almendras, nueces, semillas de
+            girasol, pasas y miel pura de abejas.
+          </p>
+
+          <h4>Valor Nutricional por 40g:</h4>
+          <ul>
+            <li>Calorías: 180</li>
+            <li>Proteínas: 6g</li>
+            <li>Fibra: 4g</li>
+            <li>Grasas saludables: 8g</li>
+          </ul>
+
+          <h4>Presentación:</h4>
+          <p>
+            Bolsa de 400g con cierre hermético. Sin conservantes artificiales.
+            Consumir preferiblemente en 3 meses.
+          </p>
+          <a href="https://organicoslacomarca.online/news/granola">
+            <h4>Seguir leyendo</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openModal(productId) {
+        document.getElementById("modal-" + productId).style.display = "block";
+      }
+
+      function closeModal(productId) {
+        document.getElementById("modal-" + productId).style.display = "none";
+      }
+
+      // Cerrar modal al hacer clic fuera de él
+      window.onclick = function (event) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach((modal) => {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        });
+      };
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 100) {
+          navbar.style.background = "rgba(255, 255, 255, 0.98)";
+          navbar.style.boxShadow = "0 8px 32px rgba(0, 0, 0, 0.15)";
+        } else {
+          navbar.style.background = "rgba(255, 255, 255, 0.95)";
+          navbar.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
+        }
+      });
+    </script>
+  </body>
+</html>
